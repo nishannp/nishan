@@ -3,6 +3,25 @@ import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 import styled from 'styled-components';
 import { FaStar } from 'react-icons/fa';
+import { Link } from 'react-router-dom'; // import Link for navigation
+
+const HomeButton = styled(Link)`
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: #2c3e50;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background 0.2s;
+  z-index: 10;
+
+  &:hover {
+    background: #34495e;
+  }
+`;
 
 const WriteContainer = styled.div`
   max-width: 800px;
@@ -111,6 +130,8 @@ export const WriteReview = () => {
 
   return (
     <WriteContainer>
+      <HomeButton to="/">Home</HomeButton> {/* Home Button */}
+      
       <Form onSubmit={handleSubmit}>
         <h2>Write a Review</h2>
         <Input
